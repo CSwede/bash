@@ -1,3 +1,7 @@
+Youtube Channels
+1. thenewboston
+2. The Bad tutorials
+
 1. What is an rpi-file?
 2. What does rpm -qpi do? See rpm-check.sh script
 3. What's the point of shifting through parameters?
@@ -9,4 +13,8 @@ let "die1 = RANDOM % $PIPS"
 8. What is awk and sed? See towards end of Edx course.
 9. What is a scaling factor?
 10. Usage: $0 <FILENAME --> What does this mean again? 
-11. 
+11. How exactly does read work?
+12. expr - I am assuming it means expression. But when is it appropriate to use it and how does it work?
+13. Regular Expression explained - See saved youtube video
+14. Globbing explained - 
+15. 
