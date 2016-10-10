@@ -1,3 +1,12 @@
 1. What is an rpi-file?
 2. What does rpm -qpi do? See rpm-check.sh script
 3. What's the point of shifting through parameters?
+4. What does case do? Does it need esac at the end? --> Chaper 7.3
+5. What meaning/purpose does ;; have? When? Why? Chapter 3?
+6. What does this do if you think about it purely mathematically? What would be the equivalent?
+let "die1 = RANDOM % $PIPS"
+7. What does seeding mean? As in "Seeding the RANDOM variable"?
+8. What is awk and sed? See towards end of Edx course.
+9. What is a scaling factor?
+10. Usage: $0 <FILENAME --> What does this mean again? 
+11. 
