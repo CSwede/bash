@@ -1,2 +1,2 @@
 # bash
-Bash code and notes
+Bash code, notes and general thoughts regarding programming
