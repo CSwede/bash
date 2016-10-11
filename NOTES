@@ -1,0 +1,83 @@
+# Shell accessed through the terminal
+
+# All unix commands are in lower case letters
+
+# clear - is the same as Ctrl+l
+
+# cal - to get calendar
+  # can do: cal 7 2006 for July 2006
+  # can do: cal feb 2016 too.
+
+# date - to get today's date
+
+# touch - to create empty text files
+  # eg: touch test1 test2 test3
+
+# mkdir - to create directory
+  # eg: mkdir Documents/Test_Folder
+  # This will create a new folder called Test_Folder inside the Documents folder
+
+# cat > test --> this lets you write to the file called test
+  # Hit Ctrl+d to stop typing and create the file
+    
+# cat < test --> to print the text from the test file to the terminal
+  # The less than (<) is not mandatory to read/print the file. But a good habit so keep it up.
+  # Note the difference between < and > for creating and reading files with cat.
+
+# cat detecting_key test > sample
+  # To merge the detecting_key and test files into a new file called sample
+  # First statement will come from detecting_key and 2nd statement will come from test in this example (because of the order)
+
+# mv forrest_gump the_green_mile
+  # To rename the file forrest_gump to the_green_mile without moving it from its current directory using the mv command
+  # Can also move a file from one directory to another using the mv command like this:
+  mv forrest_gump /home/cswede/Documents/Bad\ Tutorials/
+  which would move the file forrest_gump to /home/cswede/Documents/Bad Tutorials from where ever its current directory may be.
+
+# rm the_green_mile to remove the file called the_green_mile.
+  # Note that you have to be in the directory that the file is in order for the rm command to work.
+  # rm -r <directory name> if you want to use the rm command to remove a directory
+  # Note that when you use the rm command the file DOES NOT get moved to the Trash.
+    
+# rmdir new to remove the directory called new.
+  # Has the same effect as the rm -r command.
+  # Note that you have to be in the directory that the file is in order for the rmdir command to work.
+
+# cp old /home/cswede/Music/old_music to copy the file old to /home/cswede/Music/ and name the copy old_music
+  # cp are different from mv since when you use cp the old file will remain in the directory from where you copied it from.
+    This would not be the case if you had used the mv command.
+    
+# Links - Soft vs Hard links
+  # ln old new to create a Hard Link. You will now have one filled called old and one filled called new in the same directory.
+    # If you make any changes to the file called old, the changes will automatically also happen in the file called new. New acts as a replica of old
+  # ln -s old old_soft to create a Soft Link
+    # old_soft will have the same text (because they're text files in this example) as the old file.    
+  # If you delete the old file - Both links will remain in your directory, but:
+    # the file new will be intact and still have the same text that it originally got from the changes it got from old
+    # the file old_soft will not be able to open and it will say "Link is broken", "cannot be used because its target old doesn't exist"
+
+# Permissions - 3 categories: Owner, Group, Others
+  # read, write, execute.
+  read = 2
+  write = 4
+  execute = 1
+  # Means that a file at best can have a numerical value of 7 (2+4+1)
+    # So if you want Owner, Group and Others to have read, write, execute permission for a file: chmod 777 <filename>
+    # If you want Owner to have read, write, execute and Group and Others to have write, execute: chmod 755 <filename>
+  # default when you create a file is:
+    # Owner: read, write
+    # Group: read only
+    # Others: read only
+
+# ls command is used to see the content of directories
+  # ls -l (long listing) to see file permissions etc. "d" in the beginning of the permission tells me that its a directory. Eg:
+  drwxr-xr--x for a directory vs.
+  -rw-r--r-- for a file
+  # ls -a (display all) to display hidden files as well.
+    # to create a hidden file: put a . ahead of the filename. Eg: .new to create a hidden file called new
+  # ls -al to display all files incl. hidden in long listing format
+  
+  
+
+
+
