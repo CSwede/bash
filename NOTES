@@ -1,4 +1,5 @@
 # Shell accessed through the terminal
+# Note <filename> signifies filenames and <dirname> directory names
 
 # All unix commands are in lower case letters
 
@@ -10,51 +11,51 @@
 
 # date - to get today's date
 
-# touch - to create empty text files
+# touch <filename> to create empty text files
   # eg: touch test1 test2 test3
 
-# mkdir - to create directory
+# mkdir <dirname> to create directory
   # eg: mkdir Documents/Test_Folder
   # This will create a new folder called Test_Folder inside the Documents folder
 
-# cat > test --> this lets you write to the file called test
+# cat > <test> this lets you write to the file called test
   # Hit Ctrl+d to stop typing and create the file
     
-# cat < test --> to print the text from the test file to the terminal
+# cat < <test> to print the text from the test file to the terminal
   # The less than (<) is not mandatory to read/print the file. But a good habit so keep it up.
   # Note the difference between < and > for creating and reading files with cat.
 
-# cat detecting_key test > sample
+# cat <detecting_key> <test> > <sample>
   # To merge the detecting_key and test files into a new file called sample
   # First statement will come from detecting_key and 2nd statement will come from test in this example (because of the order)
 
-# mv forrest_gump the_green_mile
+# mv <forrest_gump> <the_green_mile>
   # To rename the file forrest_gump to the_green_mile without moving it from its current directory using the mv command
   # Can also move a file from one directory to another using the mv command like this:
   mv forrest_gump /home/cswede/Documents/Bad\ Tutorials/
   which would move the file forrest_gump to /home/cswede/Documents/Bad Tutorials from where ever its current directory may be.
 
-# rm the_green_mile to remove the file called the_green_mile.
+# rm <the_green_mile> to remove the file called <the_green_mile>
   # Note that you have to be in the directory that the file is in order for the rm command to work.
   # rm -r <directory name> if you want to use the rm command to remove a directory
   # Note that when you use the rm command the file DOES NOT get moved to the Trash.
     
-# rmdir new to remove the directory called new.
+# rmdir <new> to remove the directory called <new>
   # Has the same effect as the rm -r command.
   # Note that you have to be in the directory that the file is in order for the rmdir command to work.
 
-# cp old /home/cswede/Music/old_music to copy the file old to /home/cswede/Music/ and name the copy old_music
+# cp <old> /home/cswede/Music/old_music to copy the file <old> to /home/cswede/Music/ and name the copy <old_music>
   # cp are different from mv since when you use cp the old file will remain in the directory from where you copied it from.
     This would not be the case if you had used the mv command.
     
 # Links - Soft vs Hard links
-  # ln old new to create a Hard Link. You will now have one filled called old and one filled called new in the same directory.
-    # If you make any changes to the file called old, the changes will automatically also happen in the file called new. New acts as a replica of old
-  # ln -s old old_soft to create a Soft Link
-    # old_soft will have the same text (because they're text files in this example) as the old file.    
-  # If you delete the old file - Both links will remain in your directory, but:
-    # the file new will be intact and still have the same text that it originally got from the changes it got from old
-    # the file old_soft will not be able to open and it will say "Link is broken", "cannot be used because its target old doesn't exist"
+  # ln <old> <new> to create a Hard Link. You will now have one file called <old> and one file called <new> in the same directory.
+    # If you make any changes to the file called <old>, the changes will automatically also happen in the file called <new>. New acts as a replica of old
+  # ln -s <old> <old_soft> to create a Soft Link
+    # <old_soft> will have the same text (because they're text files in this example) as the old file.    
+  # If you delete the <old> file - Both links will remain in your directory, but:
+    # the file <new> will be intact and still have the same text that it originally got from the changes it got from <old>
+    # the file <old_soft> will not be able to open and it will say "Link is broken", "cannot be used because its target <old> doesn't exist"
 
 # Permissions - 3 categories: Owner, Group, Others
   # read, write, execute.
@@ -86,7 +87,31 @@
   # If you have execute permission for a directory you can go into it and make changes in it. 
   Without it you can't make changes to it - and you're basically useless without it.
   
+# uname
+  # uname -a (-a = all) give info about kernel, machine, system date, processor
+
+# file* --> this represents everything that you have in the directory you are currently in and will display every item in long listing
+  # Additionally it will tell you what type (ASCII, directory etc.) each file is.
+  # Good alt. to the ls command
+
+# wc <filename> will show you info about the file such as:
+  1) Sentences in file
+  2) Number of words
+  3) number of characters/letters
+
+# sort <filename1>  would sort filename1 alphabetically
+  # sort without arguments or option --> lets you type a list/text and it will sort the list for you.
+
+# cut -d"-" -f 1.3 players (Tutorial 13)
+  # Go over again.
   
+# dd if=<filename> of=<outputfilename> conv=ucase
+  # This makes all the text you have in <filename> copied into capitalzied letters in a new file <outputfile>
+  # dd if=<filename> of=<outputfilename> conv=ebcdic to copy to European coding format (now what is that?)
+
+# Tutorial 15
+
+
 
 
 
