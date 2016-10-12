@@ -99,6 +99,17 @@
 # Linux always encrpts passwords so that they are never written in clear text
   # sudo cat shadow (watch the tutorial 13 from above)
   
-  
+# DigitalOcean for renting a server online (SSH server). Click the link in Tutorial 14 - Setup and Connect to SSH Server
+  # GREAT tutorial on how to set up the server there too.
+
+# ssh <root@45.55.248.198>
+  # To connect to the computer 45.55.248.198 as the user root
+  # can use commands like ls, pwd, cd etc. just the same on the ssh server since in this example it was setup with Ubuntu as well.
+
+# SSH keys: Private vs Public Key (Tutoral 15)
+
+# ssh-keygen -t rsa
+  # to generate public/private rsa key pair
+  # ssh-copy-id root@45.55248.198     To add one key...Need to watch the Tutorial while doing this.
   
   
