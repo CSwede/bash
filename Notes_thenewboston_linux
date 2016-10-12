@@ -1,0 +1,104 @@
+# Right click inside terminal to find preferences (change cursors to I-beam)
+
+# pwd = "print working directory"
+
+# grep <SearchWord> <filename>
+  # Will search through the file <filename> for the word <SearchWord>. And everytime it finds the <SearchWord> it will display
+  that line in the terminal.
+
+# diff <file1> <file2> will show you the difference between the two files.
+  # Will print out the lines that are different between the two files.
+  
+# passwd to change your password
+
+# ls -l...Just know that -l = option and for eg: cat < <file1>, then <file1> = argument.
+
+# ls > <file1> to copy whatever output the command gives you to the file <file1>
+  # Will create <file1> in your current working directory.
+  # if you then afterwards run pwd > <file1> it will override the output from ls > so now <file1> only contains output from
+  pwd > <file1>
+  # if you don't want it to be overwritten you can use:
+  pwd >> <file1>
+  now <file1> will contain the output from both ls and pwd.
+
+# File permissions is one of the most important concepts in Linux
+  # u = user, main owner of the file
+  # g = group, that owner belongs too
+  # o = others (from the outside world)
+
+# chmod o+w <file1>
+  # changes the permission for the group Others so that they can write the <file>.
+
+# chmod o-w <file1> 
+  # takes the write permission away from group Others
+  
+# chmod 754 <file>
+  # 7, 5, 4 represents the individual permissions for (in this order) user, group, other
+  # 1 = execute
+  # 2 = write
+  # 4 = read permission. Others can now read <file>
+  # 0 = No permissions
+  # 7 = (4+2+1) --> Got all permissions
+  # chmod 777 <file> gives all groups all permissions 
+
+# Hashing Algorithm
+# shalsum <filename> | grep <hash from website>
+  # To run a hashing algo on a file to make sure/confirm that you have downloaded the correct file. 
+  # "red is a good thing - that's what you want to see"
+
+# grep means that you can pattern match
+
+# gzip <file> to compress <file> in its current location/directory.
+  # Note that this is not a copy function so you will only have 1 version of <file> and that will be the compressed file
+  # After using gzip the file will now have the .gz extension
+
+# gunzip <file.gz> to decompress it ("unzip", "extract") the <file.gz> in its current location/directory.
+
+# tar file is equivalent of a zip file in Windows
+
+# tar cvf <name_of_tar_file.tar> <file1> <file2>
+  # This will compress <file1> and <file2> into a tar file called <name_of_tar_file.tar>
+  # it will also print <file1> and <file2> to the terminal
+  # cvf -> c=create mode, v=display the output in the terminal, f=file option)
+  
+# tar xvf <name_of_tar_file.tar> to decompress/extract the files within the tar file
+
+# apt = advanced package tool
+
+# sudo = super user do
+
+# java -version
+  # Will display what version of Java you have installed
+  # If Java not installed it will tell you, so good way to see if the program in question is already installed.
+
+# .sh extension means that its a Shell Script
+  # meaning that it is a program that you can run from your terminal
+
+# bash <file.sh> to run a Shell Script.
+
+# sudo useradd <mom>
+  # to add a new user called mom
+  # when you create user <mom> she will automatically be included in a group also called <mom>
+  # sudo passwd <mom>     To change the password for user <mom>
+
+# sudo groupadd <nurses>
+  # to add a new group called nurses
+  # sudo usermod -a -G <nurses> <mom>   To add user <mom> to the group <nurses>
+  # whenever you see a capital G (as in -G) = we're just going to add them to a group
+  if you see it with a lowercase g (as in -g) = we're changing their primary group (eg group <mom> for user <mom> in this eg)
+  if you use -g you would remove user <mom> from the group <mom> and add her to group <nurses> (now her only group)
+  if you use -G the user <mom> would still be in group <mom> and she would be added to group <nurses>
+
+# sudo userdel <mom>
+  # to delete user <mom>
+
+# cd ../..    To go up into your parent directory twice (not just once like with cd ..)
+
+# See tutorial 13 - Group and More after the 5 min mark for some cool stuff about how it works behind the scenes in the / directory etc.
+
+# Linux always encrpts passwords so that they are never written in clear text
+  # sudo cat shadow (watch the tutorial 13 from above)
+  
+  
+  
+  
