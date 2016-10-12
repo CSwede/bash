@@ -124,4 +124,96 @@
   
 # get <index.html> Desktop/index.html
   # to download the file <index.html> from your server to Desktop directory with name <index.html>
+
+# sudo apt-get install gparted
+  # to install gparted that allows you do create partitions. Great GUI for creating partitions
+  # sudo gparted in terminal to run gparted
+  # /dev/sda and /dev/sdb in the top right corner (you only have /dev/sda on your Mac). This is for Devices
+    # Any new device that you plug in would be included here. So in his example if he plugged in a USB Stick it would be /dev/sdc 
+  # Partitions are called /dev/sda1, /dev/sda2, /dev/sda3 etc. They are all a part of the /dev/sda harddrive. 
+    # gparted is great because it gives you more info about each harddrive and/or partition such as File System, Mount Point etc.
+
+# File Systems - ext3 and ext4 are the more modern ones and are used more in Linux these days
+  # ext3 is currently standard for Linux
+  # ext4 is better to use when you partition new systems though (as explained in the tutorial)
+  # fat32 when you want to use something for both Linux and Windows
+
+# Tutorial 19 - Watch it as you are creating new partitions on your systems. 
+  # Do a test run on a USB drive
+
+# When you create 2 partitions on 1 USB drive the system will look at it as/see it as 2 separate devices
+
+# you can use any text editor when you create Shell Scripts. It's all the same for this purpose.
+
+#!/bin/sh   
+  # To create shell script
+  # doesn't even appear that you need the .sh extension as long as you have the #!/bin/sh
+  # run it with bash <scriptname> from the terminal
+
+# chmod +rx <file>
+  # to change the permission on <file> for the owner to read & execute
+
+# a process is essentially just any program that is running on your computer
+
+# ps 
+  # command in your terminal will give you the processes that is associated with your terminal session
+  # PID = Process ID. Every time a process is started it is assigned a new unique PID
+  # TTY = The terminal that the process is running from
+  # TIME = The amount of CPU time that the process took up
+
+# ps ax
+  # gives you all the processes that are going on, including background processes
+
+# even small commands like ls or cd are processes/programs
+
+# xlogo &
+  # at the command line - this means run the program xlogo in the background
+  # the program is still running but it doesn't "take over" the terminal, so you can still enter new commands in the terminal
+  even though the program is running
+  # output from xlogo & in his example:
+  [1] 2710
+    # 2710 = PID
+    # [1] = jobs number
+    
+ # jobs
+  # lists all the jobs that are currently running
+
+# fg %[jobs number]
+  # its without the [] in the terminal
+  # it lets [jobs number] "take over" the terminal again - so you can close out the job with Ctrl+C for example. 
+  # example of how it would flow:
+  xlogo &       --> The program xlogo would now start running in the background
+  
+  jobs
+  [1]+  Running         xlogo &         --> this would be the output from the command jobs
+  
+  fg %1         --> this would give you control over xlogo from the terminal window again, ^C (Ctrl+C) would kill the program/job
+  ^C
+
+# ^Z (Ctrl+Z)
+  # stops/freezes program/process/job
+  # you can't "x out of the program" from its GUI now
+  # fg %[jobs number] brings it back to the foreground again
+    # Note that when you bring it back to the foreground again, all the clicks that you did while it was frozen will be executed
+    so if you clicked "x" in the GUI to quit the program while it was frozen, it will now quit as you bring it back to the foreground
+
+# kill -STOP [PID]
+  # its without the [] in the terminal
+  # this is the same as stop/freezing the process/program but using the PID instead of the jobs number
+  # kill -CONT [PID]
+    # to start the program/process again
+    # once again, without the [] in the terminal
+
+# ^C is essentially the same as kill
+  # You can only send kill signals to processes you own
+  # if you want to kill system processes you need to send kill signals as root/sudo 
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
