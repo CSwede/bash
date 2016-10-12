@@ -111,5 +111,17 @@
 # ssh-keygen -t rsa
   # to generate public/private rsa key pair
   # ssh-copy-id root@45.55248.198     To add one key...Need to watch the Tutorial while doing this.
+
+# nano </etc/ssh/ssdh_config>
+  # nano allows you to edit multiple lines at the time
   
+# ALL tutorials on servers are great. Need to watch them as you're doing the work.  
+  
+# put -r Desktop/Books    (This is done will being connected to the server from your terminal)
+  # we're going to add the directory Desktop/Books into the server
+  # the -r option means we're doing it "recursively" --> meaning that we will also move all the files that are in the directory
+  to our server
+  
+# get <index.html> Desktop/index.html
+  # to download the file <index.html> from your server to Desktop directory with name <index.html>
   
