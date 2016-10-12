@@ -58,9 +58,9 @@
 
 # Permissions - 3 categories: Owner, Group, Others
   # read, write, execute.
-  read = 2
-  write = 4
-  execute = 1
+  read = 2 or r
+  write = 4 or w
+  execute = 1 or x
   # Means that a file at best can have a numerical value of 7 (2+4+1)
     # So if you want Owner, Group and Others to have read, write, execute permission for a file: chmod 777 <filename>
     # If you want Owner to have read, write, execute and Group and Others to have write, execute: chmod 755 <filename>
@@ -76,6 +76,15 @@
   # ls -a (display all) to display hidden files as well.
     # to create a hidden file: put a . ahead of the filename. Eg: .new to create a hidden file called new
   # ls -al to display all files incl. hidden in long listing format
+
+# chmod 777 <filename> to change the permission for Owner, Group, Others to read, write, execute for <filename>.
+  # The 1st 7 is for Owner
+  # 2nd 7 is for Group
+  # 3rd 7 is for Others.
+  # for this file in ls -l it would show up as follow in the permission column:
+  -rwxrwxrwx
+  # If you have execute permission for a directory you can go into it and make changes in it. 
+  Without it you can't make changes to it - and you're basically useless without it.
   
   
 
