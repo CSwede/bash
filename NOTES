@@ -2,6 +2,11 @@
 /usr/local/bin/
   # One advantage: this directory is already in your PATH so there is no need to edit files.
 
+# NOTE: When writing scripts in Python you need the following at the beginning of the script instead of the normal shebang:
+#!/usr/bin/python
+or
+#!/usr/bin/python3
+
 # Shell accessed through the terminal
 # Note <filename> signifies filenames and <dirname> directory names
 
