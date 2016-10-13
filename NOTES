@@ -1,3 +1,7 @@
+# NOTE: for the scripts you want to be available for all users from the terminal - put them in:
+/usr/local/bin/
+  # One advantage: this directory is already in your PATH so there is no need to edit files.
+
 # Shell accessed through the terminal
 # Note <filename> signifies filenames and <dirname> directory names
 
@@ -109,9 +113,63 @@
   # This makes all the text you have in <filename> copied into capitalzied letters in a new file <outputfile>
   # dd if=<filename> of=<outputfilename> conv=ebcdic to copy to European coding format (now what is that?)
 
-# Tutorial 15
+# can also execute shell scripts by:
+  # sh <file.sh>
+  # Do you need sha-bang (#!) when you save the script with the .sh extension and you use the above command to execute?
+
+# script example including read:
+echo "Please enter your name"
+read my_name
+echo "Hello $my_name, It's a beautiful day, ins't it?"
+  # Note that my_name is a variable
+
+# Positional parameters - basically system variables that hold values at the time we execute the shell script
+  # Anything that follows the script name is a positional parameter
+  # $1 is the first positional parameter
+  # Shell script example:
+# this file takes a file name as an argument and renames it.
+mv $1 $2
+cat $2
+  # you would run the script as follows:
+sh <script name.sh> <current filename> <new file name>
+    # Where <current filename> = Positional parameter number 1 aka $1 
+    and <new file name> = Positional parameter number 2 aka $2
+    # When you run the script it will also print the text in the file as output to the terminal
+  # An alt version of this script:
+echo "Provide a file name"
+read name
+mv $1 $name
+cat $name
+
+# chmod default is 644
+# Another shell script example with Positional Parameters:
+chmod 744 $1
+ls -l $1
+  # this script changes the permission for the file you input as the positional parameter
+  # to run it:
+  sh <script name.sh> <filename>
+    # <filename> = Positional parameter number 1 = $1
+
+# Cool example using the set command:
+  # at the terminal:
+  set Shell scripting is cool
+  # Nothing will show up when you hit Enter key but, the set command has made every string (word) into a positional parameter
+  # So $1 = Shell, $2 = scripting etc. meaning that if you type:
+  echo $1
+  output: Shell
+  echo $2
+  output: scripting
+  # and so on..
+
+  # if you use set again, eg:
+  set Youtube is the best
+  # Then your old parameters ($1=Shell $2=scripting $3=is $4=cool) will be overwritten
+  
+  # you can also use $* to see all the parameters at once:
+  $*
+  output: Youtube is the best
 
 
-
+  
 
 
