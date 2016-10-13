@@ -46,3 +46,105 @@ FILE PROPERTIES
                 attributes
 # lsattr        List advanced file          NEW
                 attributes
+
+FILE LOCATION
+# find          Locate files
+# slocate       Locate files via index      NEW
+# which         Locate commands
+# whereis       Locate standard files       Slightly unclear what standard files means
+
+FILE TEST MANIPULATION
+# grep          Search text for             SEMI-NEW. Need more understanding with pipes
+                matching lines
+# cut           Extract columns             NEW
+# paste         Append columns              NEW
+# tr            Translate characters        NEW
+# sort          Sort lines                  SEMI-NEW
+# uniq          Locate identical lines      SEMI-NEW
+# tee           Copy stdin to a file and
+                to stdout simultaneously    NEW
+                
+FILE COMPRESSION
+# gzip          Compress files (GNU Zip)    SEMI-NEW
+# compress      Compress files (UNIX)       NEW
+# bzip2         Compress files (BZip2)      NEW
+# zip           Compress files (Windows)    NEW
+
+FILE COMPARISON
+# diff          Compare files line by line  SEMI-NEW
+# comm          Compare sorted files        NEW
+# cmp           Compare files byte          NEW
+                by byte         
+# md5sum        Compute checksums           NEW - What is checksums?
+
+DISKS AND FILESYSTEMS
+# df            Show free disk space
+# mount         Make a disk accessible      NEW - accessible for who?
+# fsck          Check a disk for errors     NEW
+# sync          Flush disk caches           NEW
+
+BACKUPS AND REMOTE STORAGE
+# mt            Control a tape drive        NEW - tape drive = USB drive?
+# dump          Back up a disk              NEW
+# restore       Restore a dump              NEW
+# tar           Read/Write tape archives    NEW
+# cdrecord      Burn a CD                   NEW
+# rsync         Mirror a set of files       NEW
+
+PRINTING (to an actual printer?)
+# lpr           Print files                 NEW
+# lpq           View print queue            NEW
+# lprm          Remove print jobs           NEW
+
+SPELLING OPERATIONS
+# look          Look up spelling            NEW
+# aspell        Check spelling              NEW
+                interactively
+# spell         Check spelling in batch     NEW
+
+PROCESSES
+# ps            List all processes
+# w             List users processes        NEW
+# uptime        View the system load        NEW
+# top           Monitor processes
+# xload         Monitor system load         NEW
+# free          Display free memory
+# kill          Terminate process
+# nice          Set process priorities      NEW
+# renice        Change process priorities   NEW
+
+SCHEDULING JOBS
+# sleep         Wait for some time          NEW
+# watch         Run programs at set         NEW
+                intervals
+# at            Schedule a job              NEW
+# crontab       Schedule repeated jobs      NEW
+
+HOSTS
+# uname         Print system information    
+# hostname      Print the system's hostname 
+# ifconfig      Set/display network info    NEW
+# host          Look up DNS                 NEW
+# whois         Look up domain              SEMI-NEW
+                registrants
+# ping          Check if host is reachable  SEMI-NEW
+# traceroute    View network path to a host NEW
+
+NETWORKING
+# ssh           Securely log into remote    SEMI-NEW
+                hosts
+# telnet        Log into remote hosts       NEW
+# scp           Securely copy files         NEW
+                between hosts   
+# sftp          Securely copy files         NEW - diff vs scp?
+                between hosts         
+# ftp           Copy files between hosts    NEW
+# mutt          Text-based email client     NEW - Good practice?
+# lynx          Text-only web browser       NEW - Good practice?
+# wget          Retrive web pages to disk   NEW
+# slrn          Read Usenet news            NEW - what is Usenet?
+# gaim          Instant messaging/IRC       NEW
+# talk          Linux/Unix chat             NEW
+# write         Send messages to a terminal NEW
+# mesg          Prohibit talk/write         NEW
+
