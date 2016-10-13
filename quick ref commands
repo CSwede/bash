@@ -1,0 +1,48 @@
+See man/info pages for options and arguments for each command
+
+FILE/DIRECTORY Basics
+# ls            List files
+# cp            Copy files
+# mv            Rename files
+# rm            Detele files
+# ln            Link files
+# cd            Change directory
+# pwd           Print current directory
+# mkdir         Create directory
+# rmdir         Delete directory
+
+FILE VIEWING
+# cat           View files
+# less          Page through files          NEW
+# head          View file beginning
+# tail          View file ending
+# nl            Number lines                NEW
+# od            View binary data            NEW
+# xxd           View binary data            NEW (difference vs od?) 
+# gv            View Postscript/PDF files   NEW
+# xdvi          View TeX DVI files          NEW (what type of files are those?)
+
+FILE CREATION & EDITING
+# emacs         Text editor                 Which one should I learn?
+# vim           Text editor                 emacs vs vim?
+# umask         Set default file            NEW
+                protections
+# soffice       Edit Word/Excel/            NEW
+                PowerPoint docs
+# abiword       Edit Word docs              NEW
+# gnumeric      Edit Excel docs             NEW
+
+FILE PROPERTIES
+# stat          Display file attributes     NEW
+# wc            Count bytes/words/lines     SEMI-NEW
+# du            Measure disk usage          NEW
+# file          Identify file types         NEW - How many different types of files can it identify?
+# touch         Change file timestamps/     The timestamps part is NEW
+                create new file
+# chown         Change file Owner           NEW
+# chgrp         Change file Group           NEW
+# chmod         Change file protections
+# chattr        Change advanced file        NEW - What type of attributes are we talking?
+                attributes
+# lsattr        List advanced file          NEW
+                attributes
