@@ -1,0 +1,66 @@
+# Apart from passing commands to the kernel, the main task of a shell is providing a user environment
+
+# cat /etc/shells
+
+# Bash startup files:
+    # Startup files are scripts that are read and executed by Bash when it starts.
+
+# What is an interactive shell?
+    # An interactive shell generally reads from, and writes to, a user's terminal: input and output are connected to a terminal
+    # Bash interactive behavior is started when the bash command is called upon
+    
+# All scripts use non-interactive shells. 
+    # They are programmed to do certain tasks and cannot be instructed to do other jobs than those for which they are programmed.
+
+# Conditional expressions are used by the [[ compound command and by the test and [ built-in commands.
+    # Expressions may be unary or binary. 
+    # Unary expressions are often used to examine the status of a file. 
+    You only need one object, for instance a file, to do the operation on.
+
+# Bash always reads at least one complete line of input before executing any of the commands on that line.
+
+# Bash provides one-dimensional array variables. Any variable may be used as an array
+    #  the declare built-in will explicitly declare an array
+    # There is no maximum limit on the size of an array, nor any requirement that members be indexed or assigned contiguously. 
+    # Arrays are zero-based
+    
+# The directory stack is a list of recently-visited directories. 
+    # The pushd built-in adds directories to the stack as it changes the current directory 
+    and the popd built-in removes specified directories from the stack and changes 
+    the current directory to the directory removed.
+    # Content can be displayed issuing the dirs command or by checking the content of the DIRSTACK variable    
+
+# When a command that is found to be a shell script is executed, rbash turns off any restrictions in the shell
+spawned to execute the script
+
+# Bash determines the type of program that is to be executed. 
+    # Normal programs are system commands that exist in compiled form on your system. 
+    # When such a program is executed, a new process is created because Bash makes an exact copy of itself. 
+    This child process has the same environment as its parent, only the process ID number is different. 
+    # This procedure is called forking
+    # After the forking process, the address space of the child process is overwritten with the new process data. 
+    This is done through an exec call to the system.
+    # The fork-and-exec mechanism thus switches an old command with a new, while the environment in which the
+    new program is executed remains the same, including configuration of input and output devices, environment
+    variables and priority. 
+        # This mechanism is used to create all UNIX processes, so it also applies to the Linux operating system
+
+# Built-in commands are contained within the shell itself
+    # When the name of a built-in command is used as the first word of a simple command, 
+    the shell executes the command directly, without creating a new process
+
+# When the program being executed is a shell script, bash will create a new bash process using a fork. 
+    # This subshell reads the lines from the shell script one line at a time. 
+    # Commands on each line are read, interpreted and executed as if they would have come directly from the keyboard        
+
+# in a pipeline (the | operator) the output of one command becomes the input of a second
+
+# A parameter is an entity that stores values. It can be a name, a number or a special value. 
+    # For the shell's purpose, a variable is a parameter that stores a name. 
+    # A variable has a value and zero or more attributes
+    # If no value is given, a variable is assigned the null string. 
+    # Variables can only be removed with the unset built-in.
+
+
+
+
