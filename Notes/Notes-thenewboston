@@ -54,6 +54,10 @@
 
 # gunzip <file.gz> to decompress it ("unzip", "extract") the <file.gz> in its current location/directory.
 
+# gzip -r myfolder
+# gunzip -r myfolder
+  # this is to compress a directory recursively
+
 # tar file is equivalent of a zip file in Windows
 
 # tar cvf <name_of_tar_file.tar> <file1> <file2>
@@ -62,6 +66,14 @@
   # cvf -> c=create mode, v=display the output in the terminal, f=file option)
   
 # tar xvf <name_of_tar_file.tar> to decompress/extract the files within the tar file
+
+# tar -zcvf archive-name.tar.gz directory-name
+Where,
+    -z : Compress archive using gzip program
+    -c: Create archive
+    -v: Verbose i.e display progress while creating archive
+    -f: Archive File name
+  # This is to decompress a directory
 
 # apt = advanced package tool
 
