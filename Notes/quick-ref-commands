@@ -13,12 +13,13 @@ FILE/DIRECTORY Basics
 
 FILE VIEWING
 # cat           View files
-# less          Page through files          NEW
-# head          View file beginning
+# less          Page through files          NEW - Awesome, displays the file just as man pages (eg: man ls)
+# head          View file beginning 
 # tail          View file ending
-# nl            Number lines                NEW
-# od            View binary data            NEW
-# xxd           View binary data            NEW (difference vs od?) 
+# nl            Number lines                NEW - Displays number lines like you can in a text document
+# od            View binary data            NEW - Translates text into binary (can it transfer other things than text?)
+# xxd           View binary data            NEW - difference vs od: includes the actual text and the binary looks different
+Cool eg: od test1 | cat > test2.. This first reads test1 in binary and saves the binary output to file test2
 # gv            View Postscript/PDF files   NEW
 # xdvi          View TeX DVI files          NEW (what type of files are those?)
 
@@ -117,7 +118,9 @@ SCHEDULING JOBS
 # sleep         Wait for some time          NEW
 # watch         Run programs at set         NEW
                 intervals
-# at            Schedule a job              NEW
+# at            Schedule a job              NEW - Really Cool!
+eg: at 7:25am 
+at> bash awesome    -> Note here awesome is a script you wrote
 # crontab       Schedule repeated jobs      NEW
 
 HOSTS
