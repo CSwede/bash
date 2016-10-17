@@ -1,3 +1,5 @@
+Great exercises at the end of every chapter!
+
 # Apart from passing commands to the kernel, the main task of a shell is providing a user environment
 
 # cat /etc/shells
@@ -61,6 +63,292 @@ spawned to execute the script
     # If no value is given, a variable is assigned the null string. 
     # Variables can only be removed with the unset built-in.
 
-Start at Page 16 - 1.5.1 properties of good scripts
+# When starting on a new script, ask yourself the following questions:
+• Will I be needing any information from the user or from the user's environment?
+• How will I store that information?
+• Are there any files that need to be created? Where and with which permissions and ownerships?
+What commands will I use? When using the script on different systems, do all these systems have
+these commands in the required versions?
+• Does the user need any notifications? When and why?
+
+# In order to speed up the developing process, the logical order of a program should be thought over in advance
+    # This is your first step when developing scripts
+    # A number of methods can be used; one of the most common is working with lists. 
+        Itemizing the list of tasks involved in a program allows you to describe each process. 
+        Individual tasks can be referenced by their item number.
+    # Using your own spoken language to pin down the tasks to be executed by your program will help you to
+    create an understandable form of your program. 
+        Later, you can replace the everyday language statements with shell language words and constructs         
+
+# Both echo and printf are Bash built-in commands
+    # echo always exits with a 0 status, and simply prints arguments followed by an end of line character on the standard output
+    # printf allows for definition of a formatting string and gives a non-zero exit status code upon failure.
+        Don't use () with printf
+        
+# If you execute a script from cron, supply full path names and redirect output and errors. 
+    # How would i redirect output and errors properly? 
+    # In bash, calling foo would display any output from that command on the stdout.
+    Calling foo > output would redirect any output from that command to the file specified (in this case 'output').
+    # Is there a way to redirect output to a file and have it display on stdout?
+    The command you want is named tee:
+    ls -lR / | tee output.file
+    
+# An init script starts system services on UNIX and Linux machines
+    # The system log daemon, the power management daemon, the name and mail daemons are common examples
+    # These scripts, also known as startup scripts, are stored in a specific location on your system, 
+    such as /etc/rc.d/init.d or /etc/init.d. 
+    #  Init, the initial process, reads its configuration files and decides which services to start or stop in each run level
+    
+# When the shell is started, it reads its configuration files. The most important are:
+• /etc/profile
+• ~/.bash_profile
+• ~/.bashrc
+
+# Shell commands can be split up in three groups: 
+    # the shell functions, 
+    # shell built-ins, and 
+    # existing commands in a directory on your system. 
+    
+# Bash supports additional built-ins not found in the plain Bourne shell.
+
+# You can use scripts to automate tasks using the cron facility
+
+# When writing scripts - You might want to chose a more advanced editor like vim or emacs,
+    because these can be configured to recognize shell and Bash syntax and can be a great help in preventing
+    those errors that beginners frequently make, such as forgetting brackets and semi-colons.
+
+# Give your script a sensible name that gives a hint about what the script does
+    # Make sure that your script name does not conflict with existing commands
+    #  In order to ensure that no confusion can rise, script names often end in .sh
+
+#  It is strongly advised to inform users about what a script is doing
+    # to prevent them from becoming nervous because the script is not doing anything
+
+#  It might be a good idea to create a directory ~/scripts to hold your scripts. 
+    # Add the directory to the contents of the PATH variable
+        export PATH="$PATH:~/scripts"
+    # WHAT WOULD THIS DO??
+        http://askubuntu.com/questions/720678/what-does-export-path-somethingpath-mean
+    # If you did not put the scripts directory in your PATH, and . (the current directory) is not in the PATH
+    either, you can activate the script like this:
+        ./script_name.sh
+    # A script can also explicitly be executed by a given shell, but generally we only do this if we want to obtain
+    special behavior, such as checking if the script works with another shell or printing traces for debugging:
+    rbash script_name.sh
+    sh script_name.sh
+    bash -x script_name.sh
+        # The specified shell will start as a subshell of your current shell and execute the script
+    # If you don't want to start a new shell but execute the script in the current shell, you source it:
+        source script_name.sh
+    # source = .
+        # The Bash source built-in is a synonym for the Bourne shell . (dot) command.
+    The script does not need execute permission in this case. Commands are executed in the current shell context,
+    so any changes made to your environment will be visible when the script finishes execution.
+
+# chmod u+x script1.sh
+    # to give the owner execute permission for script1.sh
+    
+# When running a script in a subshell, you should define which shell should run the script. 
+    # The shell type in which you wrote the script might not be the default on your system, 
+    so commands you entered might result in errors when executed by the wrong shell.    
+    
+# For the purpose of this course, all scripts will start with the line:
+    #!/bin/bash
+        # As noted before, this implies that the Bash executable can be found in /bin    
+        
+# In a decent script, the first lines are usually comment about what to expect. 
+    # Then each big chunk of commands will be commented as needed for clarity's sake.
+    
+# Bash provides extensive debugging features
+    # The most common is to start up the subshell with the -x option, which will run the entire script in debug mode
+    # Traces of each command plus its arguments are printed to standard output after the commands have been expanded 
+    but before they are executed.
+
+# Once you found the buggy part of your script, you can add echo statements before each command of which
+you are unsure, so that you will see exactly where and why things don't work. Like this:
+    # echo "debug message: now attempting to start w command"; w
+    
+#  Shell initialization files
+    # System-wide configuration files
+    # /etc/profile
+    # When invoked interactively with the --login option or when invoked as sh, 
+    Bash reads the /etc/profile instructions. 
+        These usually set the shell variables PATH, USER, MAIL, HOSTNAME and HISTSIZE.
+
+# The Bash source contains sample profile files for general or individual use
+
+# /etc/bashrc
+    # On systems offering multiple types of shells, it might be better to put Bash-specific configurations in this file,
+    since /etc/profile is also read by other shells, such as the Bourne shell.
+    # You might also find that /etc/profile on your system only holds shell environment and program startup
+    settings, while /etc/bashrc contains system-wide definitions for shell functions and aliases
+    #  The /etc/bashrc file might be referred to in /etc/profile or in individual user shell initialization files.
+
+# /.bash_profile
+    # This is the preferred configuration file for configuring user environments individually. 
+    In this file, users can add extra configuration options or change default settings
+
+# /.bash_login
+    # This file contains specific settings that are normally only executed when you log in to the system
+
+# /.profile
+    # In the absence of ~/.bash_profile and ~/.bash_login, ~/.profile is read. 
+    # It can hold the same configurations, which are then also accessible by other shells. 
+    # Mind that other shells might not understand the Bash syntax
+    
+# /.bashrc
+    # Today, it is more common to use a non-login shell, for instance when logged in graphically using X terminal windows.
+     Upon opening such a window, the user does not have to provide a user name or password; no authentication is done
+    # Bash searches for ~/.bashrc when this happens, so it is referred to in the files read upon login as well, 
+    which means you don't have to enter the same settings in multiple files.
+    In this user's .bashrc a couple of aliases are defined and variables for specific programs are set after the
+    system-wide /etc/bashrc is read
+    
+# /.bash_logout
+    # This file contains specific instructions for the logout procedure. In the example, the terminal window is cleared upon logout. 
+    # This is useful for remote connections, which will leave a clean window after closing them
+
+# Most shell scripts execute in a private environment: variables are not inherited by child processes unless they
+are exported by the parent shell. 
+    # Sourcing a file containing shell commands is a way of applying changes to
+    your own environment and setting variables in the current shell
+    
+# Global variables or environment variables are available in all shells. 
+    # The env or printenv commands can be used to display environment variables. 
+    # These programs come with the sh-utils package
+    
+# Local variables are only available in the current shell. 
+    # Using the set built-in command without any options will display a list of all variables (including environment variables) and functions. 
+    # The output will be sorted according to the current locale and displayed in a reusable format.
+    
+# Apart from dividing variables in local and global variables, we can also divide them in categories according to
+the sort of content the variable contains. In this respect, variables come in 4 types:
+• String variables
+• Integer variables
+• Constant variables
+• Array variables
+
+# Variables are case sensitive and capitalized by default (eg VARNAME). 
+    # Giving local variables a lowercase name is a convention which is sometimes applied. 
+    However, you are free to use the names you want or to mix cases.
+    # Variables can also contain digits, but a name starting with a digit is not allowed
+    # Putting spaces around the equal sign will cause errors. 
+    # It is a good habit to quote content strings when assigning values to variables
+
+# Exporting Variables
+    # For a local variable: child processes of the current shell will not be aware of this variable. 
+    In order to pass variables to a subshell, we need to export them using the export built-in command.
+    # Variables that are exported are referred to as environment variables. 
+    Setting and exporting is usually done in one step:
+        export VARNAME="value"
+    # A subshell can change variables it inherited from the parent, but the changes made by the child don't affect the parent.
+
+#  Bash assigns a default value to some variables. Eg: HOME
+    # SEE PAGES 39 - 42
+
+# /dev/null 2>&1...Explanation:
+    # > is for redirect
+    # /dev/null is a black hole where any data sent, will be discarded
+    # 2 is the file descriptor for Standard Error
+    # > is for redirect
+    # & is the symbol for file descriptor (without it, the following 1 would be considered a filename)
+    # 1 is the file descriptor for Standard Out
+Therefore >/dev/null 2>&1 is redirect the output of your program to /dev/null. Include both the Standard Error and Standard Out.
+With everything redirected to null, there is no output
+
+# Command substitution allows the output of a command to replace the command itself. 
+Command substitution occurs when a command is enclosed like this:
+$(command)
+
+# Arithmetic expansion allows the evaluation of an arithmetic expression and the substitution of the result. The
+format for arithmetic expansion is:
+$(( EXPRESSION ))
+
+    # The expression is treated as if it were within double quotes, but a double quote inside the parentheses is not
+    treated specially. 
+    # All tokens in the expression undergo parameter expansion, command substitution, and quote removal. 
+    # Arithmetic substitutions may be nested.
+    # The operators are roughly the same as in the C programming language.
+    # SEE PAGE 49 for Operator Precedence
+
+# Wherever possible, Bash users should try to use the syntax with square brackets:
+$[ EXPRESSION ]
+    # However, this will only calculate the result of EXPRESSION, and do no tests
+
+# The shell scans the results of parameter expansion, command substitution, and arithmetic expansion that did
+not occur within double quotes for word splitting.
+    # The shell treats each character of $IFS as a delimiter, and splits the results of the other expansions into words
+    on these characters. 
+    # If IFS is unset, or its value is exactly "'<space><tab><newline>'", the default, then any
+    sequence of IFS characters serves to delimit words
+    
+# An alias allows a string to be substituted for a word when it is used as the first word of a simple command.
+    # The shell maintains a list of aliases that may be set and unset with the alias and unalias built-in commands.    
+
+Chapter 4. Regular expressions
+# A regular expression is a pattern that describes a set of strings. Regular expressions are constructed
+analogously to arithmetic expressions by using various operators to combine smaller expressions
+
+# The fundamental building blocks are the regular expressions that match a single character. 
+# Most characters, including all letters and digits, are regular expressions that match themselves. 
+# Any metacharacter with special meaning may be quoted by preceding it with a backslash.
+
+# A regular expression may be followed by one of several repetition operators (metacharacters):
+    Table 4-1. Regular expression operators
+Operator    Effect
+.           Matches any single character.
+?           The preceding item is optional and will be matched, at most, once.
+*           The preceding item will be matched zero or more times.
++           The preceding item will be matched one or more times.
+{N}         The preceding item is matched exactly N times.
+{N,}        The preceding item is matched N or more times.
+{N,M}       The preceding item is matched at least N times, but not more than M times.
+-           Represents the range if it's not first or last in a list or the ending point of a range in a list.
+^           Matches the empty string at the beginning of a line; also represents the characters not in the range of a list.
+$           Matches the empty string at the end of a line.
+\b          Matches the empty string at the edge of a word.
+\B          Matches the empty string provided it's not at the edge of a word.
+\<          Match the empty string at the beginning of word.
+\>          Match the empty string at the end of word.
+
+# Two regular expressions may be concatenated; the resulting regular expression matches any string formed by
+concatenating two substrings that respectively match the concatenated subexpressions.
+
+# Two regular expressions may be joined by the infix operator "|"; the resulting regular expression matches any
+string matching either subexpression.
+
+# Repetition takes precedence over concatenation, which in turn takes precedence over alternation. A whole
+subexpression may be enclosed in parentheses to override these precedence rules.
+
+# In basic regular expressions the metacharacters "?", "+", "{", "|", "(", and ")" lose their special meaning;
+instead use the backslashed versions "\?", "\+", "\{", "\|", "\(", and "\)".
+
+Regular Expression examples using greg
+# grep searches the input files for lines containing a match to a given pattern list. When it finds a match in a
+line, it copies the line to standard output (by default), or whatever other sort of output you have requested with
+options.
+
+# Though grep expects to do the matching on text, it has no limits on input line length other than available
+memory, and it can match arbitrary characters within a line. 
+    # If the final byte of an input file is not a newline, grep silently supplies one
+
+Example:
+cathy ~> grep root /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+operator:x:11:0:operator:/root:/sbin/nologin
+    # Explanation:
+    User cathy displays the lines from /etc/passwd containing the string root. 
+
+Example:
+cathy ~> grep -v bash /etc/passwd | grep -v nologin
+    # Explanation:
+    Checks which users are not using bash, but accounts with the nologin shell are not displayed
+    
+PAGE 58 4.2.2.1. Line and word anchors
+
+
+
+
+
 
 
